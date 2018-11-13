@@ -55,5 +55,15 @@ suite =
                             Activity
                     in
                     Expect.equal actual expected
+            , test "水と水で、調和だ！" <|
+                \_ ->
+                    let
+                        actual =
+                            twoElements2Compatibility Water Water
+
+                        expected =
+                            Harmony
+                    in
+                    Expect.equal actual expected
             ]
         ]
