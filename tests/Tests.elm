@@ -21,5 +21,15 @@ suite =
                             SelectedElementViewModel " selected" "" "" ""
                     in
                     Expect.equal actual expected
+            , test "水が選択されている！" <|
+                \_ ->
+                    let
+                        actual =
+                            element2SelectedElementViewModel Fire
+
+                        expected =
+                            SelectedElementViewModel "" " selected" "" ""
+                    in
+                    Expect.equal actual expected
             ]
         ]
