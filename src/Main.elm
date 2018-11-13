@@ -61,7 +61,7 @@ type alias SelectedElementViewModel =
 
 element2SelectedElementViewModel : Element -> SelectedElementViewModel
 element2SelectedElementViewModel element =
-    SelectedElementViewModel "" "" "" ""
+    SelectedElementViewModel " selected" "" "" ""
 
 
 selectedElementViewModel2View : SelectedElementViewModel -> Html Msg
