@@ -155,7 +155,7 @@ selectedElementViewModel2View ordinalNum { fire, water, wind, ground } =
 
 twoElements2Compatibility : Element -> Element -> Compatibility
 twoElements2Compatibility element element2 =
-    Freedom
+    Activity
 
 
 subscriptions : Model -> Sub Msg
