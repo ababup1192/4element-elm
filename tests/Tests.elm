@@ -24,6 +24,20 @@ element2SelectedElementViewModelTest testCase element selectedElementViewModel =
             Expect.equal actual expected
 
 
+twoElements2CompatibilityTest : TestCase -> Element -> Element -> Compatibility -> Test
+twoElements2CompatibilityTest testCase element element2 compatibility =
+    test testCase <|
+        \_ ->
+            let
+                actual =
+                    twoElements2Compatibility element element2
+
+                expected =
+                    compatibility
+            in
+            Expect.equal actual expected
+
+
 suite : Test
 suite =
     describe "The Main module"
@@ -45,25 +59,15 @@ suite =
                 "土が選択されている！"
                 Ground
                 (SelectedElementViewModel "" "" "" " selected")
-            , test "火と火で、活性だ！" <|
-                \_ ->
-                    let
-                        actual =
-                            twoElements2Compatibility Fire Fire
-
-                        expected =
-                            Activity
-                    in
-                    Expect.equal actual expected
-            , test "水と水で、調和だ！" <|
-                \_ ->
-                    let
-                        actual =
-                            twoElements2Compatibility Water Water
-
-                        expected =
-                            Harmony
-                    in
-                    Expect.equal actual expected
+            , twoElements2CompatibilityTest
+                "火と火で、活性だ！"
+                Fire
+                Fire
+                Activity
+            , twoElements2CompatibilityTest
+                "水と水で、調和だ！"
+                Water
+                Water
+                Harmony
             ]
         ]
