@@ -37,5 +37,13 @@ suite =
                 "水が選択されている！"
                 Water
                 (SelectedElementViewModel "" " selected" "" "")
+            , element2SelectedElementViewModelTest
+                "風が選択されている！"
+                Wind
+                (SelectedElementViewModel "" "" " selected" "")
+            , element2SelectedElementViewModelTest
+                "土が選択されている！"
+                Ground
+                (SelectedElementViewModel "" "" "" " selected")
             ]
         ]
