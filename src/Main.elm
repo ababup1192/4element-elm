@@ -155,7 +155,15 @@ selectedElementViewModel2View ordinalNum { fire, water, wind, ground } =
 
 twoElements2Compatibility : Element -> Element -> Compatibility
 twoElements2Compatibility element element2 =
-    Activity
+    case ( element, element2 ) of
+        ( Fire, Fire ) ->
+            Activity
+
+        ( Water, Water ) ->
+            Harmony
+
+        ( _, _ ) ->
+            Activity
 
 
 subscriptions : Model -> Sub Msg
