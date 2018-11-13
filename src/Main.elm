@@ -17,12 +17,12 @@ type Element
 
 
 type alias Model =
-    {}
+    { firstElement : Element, secondElement : Element }
 
 
 init : () -> ( Model, Cmd Msg )
 init _ =
-    ( {}, Cmd.none )
+    ( { firstElement = Fire, secondElement = Fire }, Cmd.none )
 
 
 
@@ -43,13 +43,15 @@ update msg model =
 
 
 view : Model -> Html Msg
-view model =
+view { firstElement, secondElement } =
     div [ class "container" ]
         [ div [ class "elements-container" ]
-            [ selectedElementViewModel2View <|
-                SelectedElementViewModel " selected" "" "" ""
-            , selectedElementViewModel2View <|
-                SelectedElementViewModel " selected" "" "" ""
+            [ firstElement
+                |> element2SelectedElementViewModel
+                |> selectedElementViewModel2View
+            , secondElement
+                |> element2SelectedElementViewModel
+                |> selectedElementViewModel2View
             ]
         , h1 [] [ text "活性" ]
         ]
