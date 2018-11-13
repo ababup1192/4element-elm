@@ -56,7 +56,7 @@ suite =
                 Wind
                 (SelectedElementViewModel "" "" " selected" "")
             , element2SelectedElementViewModelTest
-                "土が選択されている！"
+                "地が選択されている！"
                 Ground
                 (SelectedElementViewModel "" "" "" " selected")
             , twoElements2CompatibilityTest
@@ -69,5 +69,45 @@ suite =
                 Water
                 Water
                 Harmony
+            , twoElements2CompatibilityTest
+                "風と風で、自由だ！"
+                Wind
+                Wind
+                Freedom
+            , twoElements2CompatibilityTest
+                "土と土で、信頼だ！"
+                Ground
+                Ground
+                Trust
+            , twoElements2CompatibilityTest
+                "火と水で、強敵だ！"
+                Fire
+                Water
+                Rival
+            , twoElements2CompatibilityTest
+                "火と風で、刺激だ！"
+                Fire
+                Wind
+                Stimulation
+            , twoElements2CompatibilityTest
+                "火と地で、包容だ！"
+                Fire
+                Ground
+                Inclusion
+            , twoElements2CompatibilityTest
+                "水と風で、恩恵だ！"
+                Water
+                Wind
+                Benefit
+            , twoElements2CompatibilityTest
+                "水と地で、共生だ！"
+                Water
+                Ground
+                Symbiosis
+            , twoElements2CompatibilityTest
+                "地と風で、解放だ！"
+                Ground
+                Wind
+                Release
             ]
         ]
