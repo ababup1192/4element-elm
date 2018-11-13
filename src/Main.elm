@@ -1,4 +1,10 @@
-module Main exposing (Element(..), SelectedElementViewModel, element2SelectedElementViewModel)
+module Main exposing
+    ( Compatibility(..)
+    , Element(..)
+    , SelectedElementViewModel
+    , element2SelectedElementViewModel
+    , twoElements2Compatibility
+    )
 
 import Browser
 import Html exposing (Html, a, div, h1, text)
@@ -15,6 +21,53 @@ type Element
     | Water
     | Wind
     | Ground
+
+
+type Compatibility
+    = Activity
+    | Harmony
+    | Freedom
+    | Trust
+    | Rival
+    | Stimulation
+    | Inclusion
+    | Benefit
+    | Symbiosis
+    | Release
+
+
+compatibility2Word : Compatibility -> String
+compatibility2Word compatibility =
+    case compatibility of
+        Activity ->
+            "活性"
+
+        Harmony ->
+            "調和"
+
+        Freedom ->
+            "自由"
+
+        Trust ->
+            "信頼"
+
+        Rival ->
+            "強敵"
+
+        Stimulation ->
+            "刺激"
+
+        Inclusion ->
+            "包容"
+
+        Benefit ->
+            "恩恵"
+
+        Symbiosis ->
+            "共生"
+
+        Release ->
+            "解放"
 
 
 type alias Model =
@@ -98,6 +151,11 @@ selectedElementViewModel2View ordinalNum { fire, water, wind, ground } =
         , a [ class <| "element wind" ++ wind, onClick <| SelectElement ordinalNum Wind ] [ text "風" ]
         , a [ class <| "element ground" ++ ground, onClick <| SelectElement ordinalNum Ground ] [ text "土" ]
         ]
+
+
+twoElements2Compatibility : Element -> Element -> Compatibility
+twoElements2Compatibility element element2 =
+    Freedom
 
 
 subscriptions : Model -> Sub Msg

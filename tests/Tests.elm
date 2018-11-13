@@ -45,5 +45,15 @@ suite =
                 "土が選択されている！"
                 Ground
                 (SelectedElementViewModel "" "" "" " selected")
+            , test "火と火で、活性だ！" <|
+                \_ ->
+                    let
+                        actual =
+                            twoElements2Compatibility Fire Fire
+
+                        expected =
+                            Activity
+                    in
+                    Expect.equal actual expected
             ]
         ]
