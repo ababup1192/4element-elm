@@ -119,7 +119,7 @@ view { firstElement, secondElement } =
                 |> element2SelectedElementViewModel
                 |> selectedElementViewModel2View Second
             ]
-        , h1 [] [ text "活性" ]
+        , h1 [] [ text <| (twoElements2Compatibility firstElement secondElement |> compatibility2Word) ]
         ]
 
 
