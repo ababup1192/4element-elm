@@ -1,9 +1,11 @@
 module Main exposing
     ( Compatibility(..)
     , Element(..)
+    , OrdinalNum(..)
     , SelectedElementViewModel
     , element2SelectedElementViewModel
     , twoElements2Compatibility
+    , updateElement
     )
 
 import Browser
@@ -92,16 +94,21 @@ type Msg
     = SelectElement OrdinalNum Element
 
 
+updateElement : OrdinalNum -> Element -> Model -> Model
+updateElement ordinalNum element model =
+    case ordinalNum of
+        First ->
+            { model | firstElement = element }
+
+        Second ->
+            { model | secondElement = element }
+
+
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         SelectElement ordinalNum element ->
-            case ordinalNum of
-                First ->
-                    ( { model | firstElement = element }, Cmd.none )
-
-                Second ->
-                    ( { model | secondElement = element }, Cmd.none )
+            ( model |> updateElement ordinalNum element, Cmd.none )
 
 
 

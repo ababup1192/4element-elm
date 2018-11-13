@@ -109,5 +109,25 @@ suite =
                 Ground
                 Wind
                 Release
+            , test "最初と2つ目の元素が火のとき、最初に水を入れられたら、最初が水で2つ目が火になる。" <|
+                \_ ->
+                    let
+                        actual =
+                            updateElement First Water { firstElement = Fire, secondElement = Fire }
+
+                        expected =
+                            { firstElement = Water, secondElement = Fire }
+                    in
+                    Expect.equal actual expected
+            , test "最初と2つ目の元素が火のとき、2つ目に風を入れられたら、最初が火で2つ目が風になる。" <|
+                \_ ->
+                    let
+                        actual =
+                            updateElement Second Wind { firstElement = Fire, secondElement = Wind }
+
+                        expected =
+                            { firstElement = Fire, secondElement = Wind }
+                    in
+                    Expect.equal actual expected
             ]
         ]
