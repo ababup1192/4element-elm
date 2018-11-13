@@ -69,10 +69,10 @@ element2SelectedElementViewModel element =
             SelectedElementViewModel "" " selected" "" ""
 
         Wind ->
-            SelectedElementViewModel " selected" "" "" ""
+            SelectedElementViewModel "" "" " selected" ""
 
         Ground ->
-            SelectedElementViewModel " selected" "" "" ""
+            SelectedElementViewModel "" "" "" " selected"
 
 
 selectedElementViewModel2View : SelectedElementViewModel -> Html Msg
