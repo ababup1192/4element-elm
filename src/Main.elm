@@ -149,7 +149,7 @@ selectedElementViewModel2View ordinalNum { fire, water, wind, ground } =
         [ a [ class <| "element fire" ++ fire, onClick <| SelectElement ordinalNum Fire ] [ text "火" ]
         , a [ class <| "element water" ++ water, onClick <| SelectElement ordinalNum Water ] [ text "水" ]
         , a [ class <| "element wind" ++ wind, onClick <| SelectElement ordinalNum Wind ] [ text "風" ]
-        , a [ class <| "element ground" ++ ground, onClick <| SelectElement ordinalNum Ground ] [ text "土" ]
+        , a [ class <| "element ground" ++ ground, onClick <| SelectElement ordinalNum Ground ] [ text "地" ]
         ]
 
 
@@ -162,8 +162,32 @@ twoElements2Compatibility element element2 =
         ( Water, Water ) ->
             Harmony
 
+        ( Wind, Wind ) ->
+            Freedom
+
+        ( Ground, Ground ) ->
+            Trust
+
+        ( Fire, Water ) ->
+            Rival
+
+        ( Fire, Wind ) ->
+            Stimulation
+
+        ( Fire, Ground ) ->
+            Inclusion
+
+        ( Water, Wind ) ->
+            Benefit
+
+        ( Water, Ground ) ->
+            Symbiosis
+
+        ( Ground, Wind ) ->
+            Release
+
         ( _, _ ) ->
-            Activity
+            twoElements2Compatibility element2 element
 
 
 subscriptions : Model -> Sub Msg
