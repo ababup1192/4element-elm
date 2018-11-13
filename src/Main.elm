@@ -61,7 +61,18 @@ type alias SelectedElementViewModel =
 
 element2SelectedElementViewModel : Element -> SelectedElementViewModel
 element2SelectedElementViewModel element =
-    SelectedElementViewModel " selected" "" "" ""
+    case element of
+        Fire ->
+            SelectedElementViewModel " selected" "" "" ""
+
+        Water ->
+            SelectedElementViewModel "" " selected" "" ""
+
+        Wind ->
+            SelectedElementViewModel " selected" "" "" ""
+
+        Ground ->
+            SelectedElementViewModel " selected" "" "" ""
 
 
 selectedElementViewModel2View : SelectedElementViewModel -> Html Msg

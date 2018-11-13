@@ -25,7 +25,7 @@ suite =
                 \_ ->
                     let
                         actual =
-                            element2SelectedElementViewModel Fire
+                            element2SelectedElementViewModel Water
 
                         expected =
                             SelectedElementViewModel "" " selected" "" ""
